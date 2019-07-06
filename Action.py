@@ -38,6 +38,12 @@ class Action:
     def order(self):
         return self.order()
 
+    def setStorage(self, storage):
+        self._storage = storage
+
+    def storage(self):
+        return self._storage
+
     def firstLimitation(self):
         return self.start() != self.dest()
 

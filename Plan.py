@@ -23,9 +23,12 @@ class Plan:
             represent += repr(action) + '\n'
         return represent
 
-
-    def skel(self):
-        pass
+    def skeleton(self):
+        storage = []
+        for i in range(len(self.actions)):
+            action = self.actions[i]
+            storage.append(action.storage())
+        return storage
 
     @staticmethod
     def getBestOfPlans(*plans):

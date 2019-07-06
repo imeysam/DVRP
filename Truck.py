@@ -27,6 +27,12 @@ class Truck:
     def plan(self):
         return self._plan
 
+    def bestAction(self, storage):
+        return 1
+
+    def balance(self, best_action):
+        return 1
+
     @staticmethod
     def printAll(objects):
         for item in objects:
