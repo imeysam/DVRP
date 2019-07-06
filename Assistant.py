@@ -2,6 +2,8 @@ from Order import Order
 from Truck import Truck
 from Action import Action
 from Plan import Plan
+from PlanLEM import PlanLEM
+from Storage import Storage
 from typing import List
 import numpy as np
 
@@ -19,7 +21,6 @@ class ApproachSecond:
 
     @staticmethod
     def getBestPlan(trunk: Truck, orders: List[Order]):
-
         actions = []
         for order in orders:
             action = Action(order)
@@ -33,4 +34,25 @@ class ApproachSecond:
         best_plan = Plan.getBestOfPlans(plan_1, plan_2, plan_3)
 
         trunk.setPlan(best_plan)
+        return best_plan
+
+
+class ApproachThird:
+
+    @staticmethod
+    def getBestPlan(trunk: Truck, orders: List[Order]):
+        actions = []
+        storage = []
+        for order in orders:
+            action = Action(order)
+            order.setAction(action)
+            storage_temp = Storage(action)
+            actions.append(action)
+            storage.append(storage_temp)
+
+        plan_1 = PlanLEM(len(storage), trunk, storage)
+        plan_2 = PlanLEM(len(storage), trunk, storage)
+        plan_3 = PlanLEM(len(storage), trunk, storage)
+
+        best_plan = PlanLEM.getBestOfPlans(plan_1, plan_2, plan_3)
         return best_plan

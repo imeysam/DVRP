@@ -1,6 +1,6 @@
 from Order import Order
 from Truck import Truck
-from Assistant import ApproachFirst, ApproachSecond
+from Assistant import ApproachFirst, ApproachSecond, ApproachThird
 from random import randint
 
 if __name__ == "__main__":
@@ -23,3 +23,7 @@ if __name__ == "__main__":
 
     ####################################### SECOND APPROACH ##########################################
     print(ApproachSecond.getBestPlan(truck, orders))
+
+
+    ####################################### THIRD APPROACH ##########################################
+    print(ApproachThird.getBestPlan(truck, orders))

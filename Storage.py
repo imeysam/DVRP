@@ -6,6 +6,9 @@ class Storage:
         self._action = action
         self._position = action.dest()
 
+    def __repr__(self):
+        return repr(self._action)
+
     def action(self):
         return self._action
 
